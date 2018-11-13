@@ -8,24 +8,30 @@ const Users = () => <h2>Users</h2>;
 
 const AppRouter = () => (
   <Router>
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about/">About</Link>
-          </li>
-          <li>
-            <Link to="/users/">Users</Link>
-          </li>
-          <li>
-            <Link to="/RegisterForm">Register</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="bs-component">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a className="navbar-brand" href="#">Trail Hunter</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
+        <div className="collapse navbar-collapse" id="navbarColor01">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about/">About</Link>
+            </li>
+            <li>
+              <Link to="/users/">Users</Link>
+            </li>
+            <li>
+              <Link to="/RegisterForm">Register</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <Route path="/" exact component={Index} />
       <Route path="/about/" component={About} />
       <Route path="/users/" component={Users} />
