@@ -4,7 +4,6 @@ import { BrowserRouter as Router} from "react-router-dom";
 import RegisterForm from './components/Register.js';
 import TrailsList from './components/TrailsList';
 import Home from './components/Home';
-import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 
 export default class ContentRouter extends Component{
@@ -43,7 +42,6 @@ render() {
                     {/* <Route path="/About" component={About} /> */}
                     <Route path="/TrailsList" component={TrailsList} />
                     <Route path="/RegisterForm" component={RegisterForm} />
-                    <Route path="/Login" component={Login} />
 
                 </div>
             </Router>

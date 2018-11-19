@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 class Home extends React.Component {
 
 
     render() {
         debugger;
-        console.log(this.props.userInfo)
         return (
             <React.Fragment>
                 <div className="jumbotron">
@@ -23,8 +21,4 @@ class Home extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-        userInfo: state.userInfo
-})
-
-export default connect(mapStateToProps)(Home);
+export default Home;

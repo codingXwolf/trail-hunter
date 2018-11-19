@@ -11,6 +11,7 @@ render() {
     return (
         <div className="backgroundImage">
             <h1>Trail Hunter</h1>
+
         </div>      
     )
 }

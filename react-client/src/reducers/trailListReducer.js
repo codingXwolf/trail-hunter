@@ -1,39 +1,69 @@
-import { combineReducers } from 'redux';
-import  { ADD_TRAIL, COMPLETE_TRAIL, SET_VISIBILITY_FILTER, VisibilityFilter } from '../actions/trailListAction';
-const { SHOW_ALL } = VisibilityFilter;
+const initialState = [
+    {
+        id: 120293870239
+        ,trailname: 'Wintercreek'
+        ,trailState: 'California'
+        ,city: 'Altadena'
+        ,trailRating: 'Black Diamond'
+        ,trailImage: 'https://i.ytimg.com/vi/9OBo8tsOGqU/maxresdefault.jpg'
+        ,description: 'Fast flowy singletrack'
+    },
+    // {
+    //     trailname: 'Eaton Saddle'
+    //     ,trailState: 'California'
+    //     ,city: 'Altadena'
+    //     ,trailRating: 'Black Diamond'
+    //     ,trailImage: 'https://media-cdn.tripadvisor.com/media/photo-s/0d/b2/3f/cb/on-the-way-down-from.jpg'
+    //     ,description: 'Fast flowy singletrack. Lots of exposure.'
+    // },
+    // {
+    //     trailname: 'El Prieto'
+    //     ,trailState: 'California'
+    //     ,city: 'Altadena'
+    //     ,trailRating: 'Blue'
+    //     ,trailImage: 'https://static.rootsrated.com/image/upload/s--oLXEOfgy--/t_rr_large_natural/pebymoruta1ptbzo1awz.jpg'
+    //     ,description: 'Fast flowy singletrack.'
+    // },
+    // {
+    //     trailname: 'Telonics'
+    //     ,trailState: 'California'
+    //     ,city: 'Laguna Hills'
+    //     ,trailRating: 'Double Black Diamond'
+    //     ,trailImage: 'https://ep1.pinkbike.org/p4pb4783960/p4pb4783960.jpg'
+    //     ,description: 'Starts at the top of the world, trail will on you left.'
+    // },
+    // {
+    //     trailname: 'Crestline'
+    //     ,trailState: 'California'
+    //     ,city: 'Crestline'
+    //     ,trailRating: 'Double Black Diamond'
+    //     ,trailImage: 'https://p.vitalmtb.com/photos/users/8786/photos/106080/s1200_crestline_211.jpg?1462136258'
+    //     ,description: 'Aggressive trail only for advanced riders.'
+    // }
 
-function visibilityFilter(state = SHOW_ALL, action) {
-    switch (action.type) {
-        case SET_VISIBILITY_FILTER:
-            return action.filter;
+]
+
+
+//state = [], action
+const reducer = (state = initialState, action) =>{
+    switch (action.type){
+        case 'ADD_TRAIL':
+        return [
+            ...state,
+            {
+                id: action.id
+                ,trailName: action.trailName
+                ,trailstate: action.trailState
+                ,city: action.city
+                ,trailRating: action.trailRating
+                ,trailImage: action.trailImage
+                ,description: action.description
+            }
+        ]
+            break;
         default:
             return state;
     }
 }
 
-function trailList(state = [], action) {
-    switch (action.type) {
-        case ADD_TRAIL:
-            return [...state, {
-                text: action.text,
-                completed: false
-            }];
-        case COMPLETE_TRAIL:
-            return [
-                ...state.slice(0, action.index),
-                Object.assign({}, state[action.index], {
-                    completed: true
-                }),
-                ...state.slice(action.index + 1)
-            ];
-        default:
-            return state;
-    }
-}
-
-const trailListReducer = combineReducers({
-    visibilityFilter,
-    trailList
-});
-
-export default trailListReducer;
+export default reducer;

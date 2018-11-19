@@ -1,22 +1,20 @@
-export const ADD_TRAIL = 'ADD_TRAIL';
-export const COMPLETE_TRAIL = 'COMPLETE_TRAIL';
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
+let id = 0;
+//this is data that is going to be added to the global state
+export const add = data => ({
+    id: id++
+    ,type: 'ADD_TRAIL'
+    ,trailName: data.trailName
+    ,state: data.state
+    ,city: data.city
+    ,trailRating: data.trailRating
+    ,trailImage: data.trailImage
+    ,description: data.description
+})
 
-export const VisibilityFilter = {
-    SHOW_ALL: 'SHOW_ALL'
-    , SHOW_COMPLETED: 'SHOW_COMPLETED'
-    , SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-
-export function addTrail(text) {
-    return { type: ADD_TRAIL, text };
-}
-
-export function completeTrail(index) {
-    return { type: COMPLETE_TRAIL, index };
-}
-
-export function setVisibilityFilter(filter) {
-    return { type: SET_VISIBILITY_FILTER, filter };
-}
-
+//Use this when you need to update
+// export const update = data => ({
+//     type: ''
+//     ,trailName: data.trailName
+//     ,state: data.state
+//     ,
+// })
