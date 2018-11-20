@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormControl, FormGroup, Button, ControlLabel, Form} from 'react-bootstrap';
 import { connect } from 'react-redux';
-import {add} from '../actions/trailListAction';
+import { add, update } from '../actions/trailListAction';
 
 class TrailListForm extends Component {
     constructor(props) {
@@ -12,12 +12,29 @@ class TrailListForm extends Component {
             ,trailState:''
             ,city:''
             ,trailRating:''
-            ,trailImage: ''
-            ,description: ''
+            ,trailImage:''
+            ,description:''
         }
         
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        if (id && this.props.matchingTrail && this.props.matchingTrail.length > 0) {
+            const trail = this.props.matchingTrail[0];
+    
+            this.setState({
+                trailName:trail.trailName
+                ,trailState:trail.trailState
+                ,city:trail.city
+                ,trailRating:trail.trailRating
+                ,trailImage:trail.trailImage
+                ,description:trail.description
+            })
+        }
+
     }
 
     onChange(e) {
@@ -26,7 +43,21 @@ class TrailListForm extends Component {
         })
     }
 
-    onSubmit(e) {
+    onSubmit() {
+        const id = this.props.match.params.id;
+        if(id){
+            this.props.update({
+                id: Number.parseFloat(id)
+                ,trailName: this.state.trailName
+                ,trailState:this.state.trailState
+                ,city:this.state.city
+                ,trailRating:this.state.trailRating
+                ,trailImage: this.state.trailImage
+                ,description: this.state.description
+            })
+        }
+        else{
+            debugger;
         this.props.add({
             trailName: this.state.trailName
             ,trailState:this.state.trailState
@@ -36,13 +67,14 @@ class TrailListForm extends Component {
             ,description: this.state.description
         })
     }
+        this.props.history.push("./TrailsList")
+    }
 
     render() {
         return (
             <React.Fragment>
             <div className="container">
                 <Form>
-                <h1>Submit A Trail</h1>
                     <div className="row">
                         <FormGroup className="col-lg-6">
                             <ControlLabel>Trail Name</ControlLabel>
@@ -100,6 +132,13 @@ class TrailListForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
     add: data => dispatch(add(data))
+    ,update: data => dispatch(update(data))
 })
 
-export default connect(null, mapDispatchToProps)(TrailListForm);
+const mapStateToProps = (state, ownProps) => ({
+    matchingTrail: state.trailListReducer.filter(item => {
+        return item.id === Number.parseInt(ownProps.match.params.id)
+    })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TrailListForm);
