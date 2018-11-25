@@ -13,6 +13,7 @@ export const add = data => ({
 
 export const update = data => ({
     type: 'UPDATE_TRAIL_BY_ID'
+    ,id:data.id
     ,trailName: data.trailName
     ,trailState: data.trailState
     ,city: data.city
@@ -21,10 +22,7 @@ export const update = data => ({
     ,description: data.description
 })
 
-//Use this when you need to update
-// export const update = data => ({
-//     type: ''
-//     ,trailName: data.trailName
-//     ,state: data.state
-//     ,
-// })
+export const del = id => ({
+    type: 'DELETE_TRAIL'
+    ,id:id
+})

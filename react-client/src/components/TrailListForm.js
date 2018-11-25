@@ -18,6 +18,7 @@ class TrailListForm extends Component {
         
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+        this.onDropdownChange = this.onDropdownChange.bind(this)
     }
 
     componentDidMount() {
@@ -43,34 +44,42 @@ class TrailListForm extends Component {
         })
     }
 
+    onDropdownChange(trailRating) {
+        debugger;
+        this.setState({ trailRating })
+    }
+
     onSubmit() {
         const id = this.props.match.params.id;
-        if(id){
+        if (id) {
             this.props.update({
                 id: Number.parseFloat(id)
-                ,trailName: this.state.trailName
-                ,trailState:this.state.trailState
-                ,city:this.state.city
-                ,trailRating:this.state.trailRating
-                ,trailImage: this.state.trailImage
-                ,description: this.state.description
+                , trailName: this.state.trailName
+                , trailState: this.state.trailState
+                , city: this.state.city
+                , trailRating: this.state.trailRating
+                , trailImage: this.state.trailImage
+                , description: this.state.description
             })
         }
-        else{
-            debugger;
-        this.props.add({
-            trailName: this.state.trailName
-            ,trailState:this.state.trailState
-            ,city:this.state.city
-            ,trailRating:this.state.trailRating
-            ,trailImage: this.state.trailImage
-            ,description: this.state.description
-        })
-    }
-        this.props.history.push("./TrailsList")
+        else {
+            this.props.add({
+                trailName: this.state.trailName
+                , trailState: this.state.trailState
+                , city: this.state.city
+                , trailRating: this.state.trailRating
+                , trailImage: this.state.trailImage
+                , description: this.state.description
+            })
+        }
+        this.props.history.push("/TrailsList")
     }
 
     render() {
+        const button = this.props.match.params.id
+        ? <Button type="button"className="btn btn-primary"onClick={this.onSubmit}>Update</Button>
+        : <Button type="button"className="btn btn-primary"onClick={this.onSubmit}>Submit</Button>
+
         return (
             <React.Fragment>
             <div className="container">
@@ -95,12 +104,30 @@ class TrailListForm extends Component {
                         </FormGroup>
                     </div>
 
-                    <div className="row">
+                    {/* <div className="row">
                         <FormGroup className="col-lg-6">
                             <ControlLabel>Trail Rating</ControlLabel>
                             <FormControl type="text" placeholder="Trail Rating" name="trailRating" value={this.state.trailRating} onChange={this.onChange}/>
                         </FormGroup>
-                    </div>
+                    </div> */}
+                        <div className="field row">
+                            <label>Trail Rating</label>
+                            <select name="trailRating"
+                            className="drop_style"
+                            name="dropdown"
+                            value={this.state.trailRating}
+                            onChange={this.onDropdownChange}
+                            options={this.state.options}
+                            >
+                                <option value="">- Category -</option>
+                                <option value="1">Green</option>
+                                <option value="2">Blue</option>
+                                <option value="3">Blue Diamond</option>
+                                <option value="4">Black Diamond</option>
+                                <option value="5">Double Black Diamond</option>
+                                <option value="6">Pro Line</option>
+                            </select>
+                        </div>
 
                         <div className="row">
                             <FormGroup className="col-lg-6">
@@ -116,10 +143,7 @@ class TrailListForm extends Component {
                     </div>
                     <div className="row">
                     <FormGroup className="col-sm-1">
-                        <Button type="button"
-                         className="btn btn-primary"
-                         onClick={this.onSubmit}
-                         >Submit</Button>
+                        {button}
                     </FormGroup>
                     </div>
                 </Form>

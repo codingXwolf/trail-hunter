@@ -3,7 +3,6 @@ import { Route, Switch, NavLink,} from 'react-router-dom';
 import { BrowserRouter as Router} from "react-router-dom";
 // import RegisterForm from './components/Register.js';
 import TrailsList from './components/TrailsList';
-import Home from './components/Home';
 import LandingPage from './components/LandingPage';
 import TrailListForm from './components/TrailListForm';
 
@@ -15,7 +14,7 @@ render() {
             <Switch>
             <Router>
                 <div className="bs-component">
-                    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                    {/* <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                         <h4 className="navbar-brand">Trail Hunter</h4>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -23,12 +22,7 @@ render() {
 
                         <div className="collapse navbar-collapse" id="navbarColor01">
                             <ul>
-                                <li>
-                                    <NavLink to="/Home">Home</NavLink>
-                                </li>
-                                {/* <li>
-                                    <NavLink to="/about/">About</NavLink>
-                                </li> */}
+  
                                 <li>
                                     <NavLink to="/TrailsList">Trails</NavLink>
                                 </li>
@@ -37,10 +31,8 @@ render() {
                                 </li>
                             </ul>
                         </div>
-                    </nav>
+                    </nav> */}
                     <Route path="/" exact component={LandingPage} />
-                    <Route path="/Home" component={Home} />
-                    {/* <Route path="/About" component={About} /> */}
                     <Route path="/TrailsList" component={TrailsList} />
                     <Route path="/TrailListForm/:id?" component={TrailListForm} />
                     {/* <Route path="/RegisterForm" component={RegisterForm} /> */}
