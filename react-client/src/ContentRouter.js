@@ -13,7 +13,7 @@ render() {
         <React.Fragment>
             <Switch>
             <Router>
-                <div className="bs-component">
+                <div id="wrapper" className="divided">
                     {/* <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                         <h4 className="navbar-brand">Trail Hunter</h4>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,6 @@ render() {
                     <Route path="/" exact component={LandingPage} />
                     <Route path="/TrailsList" component={TrailsList} />
                     <Route path="/TrailListForm/:id?" component={TrailListForm} />
-                    {/* <Route path="/RegisterForm" component={RegisterForm} /> */}
-
                 </div>
             </Router>
             </Switch>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button } from 'react-bootstrap';
 
 class LandingPage extends React.Component {
@@ -14,7 +15,7 @@ onToForm() {
 render() {
     return (
         <React.Fragment>
-            <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+            <section className="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
                 <div className="content">
                     <h1>Trail Hunter</h1>
                     <div>
@@ -25,7 +26,7 @@ render() {
                     </ul>
                 </div>
                 <div className="image">
-                    <img src="https://www.santacruzbicycles.com/files/wallpapers/wallpaper_scb_2.jpg" alt="" />
+                    <img src="images/mtbwheelie.jpg" alt="" />
                 </div>
             </section>
         </React.Fragment>      
