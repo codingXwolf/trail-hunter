@@ -48,56 +48,6 @@ render() {
                             <Button onClick={this.onToForm}>Add Trail</Button>
 							<div className="items style1 medium onscroll-fade-in">
 								{trailList}
-								<section><div className="inner">
-									<span className="icon style2 major fa-save"></span>
-									<h3>Two</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-bar-chart"></span>
-									<h3>Three</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-wifi"></span>
-									<h3>Four</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-cog"></span>
-									<h3>Five</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-paper-plane"></span>
-									<h3>Six</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-desktop"></span>
-									<h3>Seven</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-refresh"></span>
-									<h3>Eight</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-hashtag"></span>
-									<h3>Nine</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-bolt"></span>
-									<h3>Ten</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
-								<section><div className="inner">
-									<span className="icon style2 major fa-envelope"></span>
-									<h3>Eleven</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</div></section>
 							</div>
 						</div>
 					</section>
