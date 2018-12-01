@@ -28,7 +28,7 @@ render() {
         <h3>{item.trailName}</h3>
         <h4>{item.city}</h4>
         <span className="icon style2 major fa-diamond"><p></p>{item.trailRating}</span>
-        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage} alt="https://ubisafe.org/images/bilking-clipart-down-hill.jpg" />
+        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage} alt="images/mtbwheelie.jpg" />
         <p>{item.description}</p>
                    <Button type="button"
                        className="button primary small"
