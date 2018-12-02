@@ -22,13 +22,21 @@ class TrailsList extends Component {
     }
 
 
-render() {  
+render() {
+    const iconStyle = {height: "40px", width: "15%", display: "block"}  
     const trailList = this.props.trailListReducer.map(item => {
         return 	<section key={item.id}><div className="inner">
         <h3>{item.trailName}</h3>
         <h4>{item.city}</h4>
-        <span className="icon style2 major fa-diamond"><p></p>{item.trailRating}</span>
-        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage} alt="images/mtbwheelie.jpg" />
+        <span className="icon"><img style={iconStyle} 
+        src={item.trailRating.value === "Green" ? "images/greencircle.png" : "" ||
+        item.trailRating.value === "Blue" ? "images/bluesquare.png" : "" || 
+        item.trailRating.value === "Black Diamond" ? "images/singleblackdiamond.png" : "" ||
+        item.trailRating.value === "Double Black Diamond" ? "images/doubleblackdiamondpng.png" : "" ||
+        item.trailRating.value === "Pro Line" ? "images/proline.png" : ""}/>
+        {item.trailRating.value}</span>
+        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage ? item.trailImage : "images/huskydh.jpg"} />
+         {/*random image address https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkLYIYFJY8oILxveKLn8OA7xz9I8vJ7q0Lcq2f0g6Hdg0zQfH */}
         <p>{item.description}</p>
                    <Button type="button"
                        className="button primary small"

@@ -4,7 +4,7 @@ const initialState = [
         ,trailName: 'Wintercreek'
         ,trailState: 'California'
         ,city: 'Altadena'
-        ,trailRating: 'Black Diamond'
+        ,trailRating: {value:'Double Black Diamond'}
         ,trailImage: 'https://i.ytimg.com/vi/9OBo8tsOGqU/maxresdefault.jpg'
         ,description: 'Fast flowy singletrack'
     },
@@ -13,7 +13,7 @@ const initialState = [
         ,trailName: 'Eaton Saddle'
         ,trailState: 'California'
         ,city: 'Altadena'
-        ,trailRating: 'Black Diamond'
+        ,trailRating: {value:'Black Diamond'}
         ,trailImage: 'https://media-cdn.tripadvisor.com/media/photo-s/0d/b2/3f/cb/on-the-way-down-from.jpg'
         ,description: 'fast trail with a lot of exposure.'
     }

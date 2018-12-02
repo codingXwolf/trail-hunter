@@ -11,7 +11,7 @@ class TrailListForm extends Component {
             trailName:''
             ,trailState:''
             ,city:''
-            ,trailRating:''
+            ,trailRating:{ value:'Select Rating'}
             ,trailImage:''
             ,description:''
         }
@@ -38,18 +38,11 @@ class TrailListForm extends Component {
 
     }
 
-    onChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
+    onChange = e => { this.setState({ [e.target.name]: e.target.value}) }
 
-    onDropdownChange(trailRating) {
-        debugger;
-        this.setState({ trailRating })
-    }
+    onDropdownChange = selectedOption => { this.setState({trailRating: selectedOption.target.value}) }
 
-    onSubmit() {
+    onSubmit = () => {
         const id = this.props.match.params.id;
         if (id) {
             this.props.update({
@@ -57,7 +50,7 @@ class TrailListForm extends Component {
                 , trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating
+                , trailRating: this.state.trailRating.selectItem
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -67,7 +60,7 @@ class TrailListForm extends Component {
                 trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating
+                , trailRating: this.state.trailRating.selectItem
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -103,17 +96,14 @@ class TrailListForm extends Component {
                                 <select name="trailRating"
                                     className="drop_style"
                                     name="dropdown"
-                                    value={this.state.trailRating}
-                                    onChange={this.onDropdownChange}
-                                    options={this.state.options}
+                                    value={this.state.trailRating.value}
+                                    onChange={ e => this.onDropdownChange(e)}
                                 >
-                                    <option value="">- Category -</option>
-                                    <option value="1">Green</option>
-                                    <option value="2">Blue</option>
-                                    <option value="3">Blue Diamond</option>
-                                    <option value="4">Black Diamond</option>
-                                    <option value="5">Double Black Diamond</option>
-                                    <option value="6">Pro Line</option>
+                                    <option value="Green">Green</option>
+                                    <option value="Blue">Blue</option>
+                                    <option value="Black Diamond">Black Diamond</option>
+                                    <option value="Double Black Diamond">Double Black Diamond</option>
+                                    <option value="Pro Line">Pro Line</option>
                                 </select>
                             </div>
 
