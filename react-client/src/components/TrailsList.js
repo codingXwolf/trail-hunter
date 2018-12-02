@@ -28,14 +28,14 @@ render() {
         return 	<section key={item.id}><div className="inner">
         <h3>{item.trailName}</h3>
         <h4>{item.city}</h4>
-        <img style={iconStyle} 
+        <img style={iconStyle} alt="some text"
         src={item.trailRating === "Green" ? "images/greencircle.png" : "" ||
         item.trailRating === "Blue" ? "images/bluesquare.png" : "" || 
         item.trailRating === "Black Diamond" ? "images/singleblackdiamond.png" : "" ||
         item.trailRating === "Double Black Diamond" ? "images/doubleblackdiamondpng.png" : "" ||
         item.trailRating === "Pro Line" ? "images/proline.png" : ""}/>
         <p>{item.trailRating}</p>
-        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage ? item.trailImage : "images/huskydh.jpg"} />
+        <img style={{ height: "190px", width: "100%", display: "block" }} alt="some text" src={item.trailImage ? item.trailImage : "images/huskydh.jpg"} />
          {/*random image address https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkLYIYFJY8oILxveKLn8OA7xz9I8vJ7q0Lcq2f0g6Hdg0zQfH */}
         <p>{item.description}</p>
                    <Button type="button"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, NavLink,} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import { BrowserRouter as Router} from "react-router-dom";
 // import RegisterForm from './components/Register.js';
 import TrailsList from './components/TrailsList';
@@ -32,9 +32,14 @@ render() {
                             </ul>
                         </div>
                     </nav> */}
+                    <section className="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
                     <Route path="/" exact component={LandingPage} />
-                    <Route path="/TrailsList" component={TrailsList} />
+					</section>
+                    <section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
                     <Route path="/TrailListForm/:id?" component={TrailListForm} />
+                    </section>
+                    <Route path="/TrailsList" component={TrailsList} />
+
                 </div>
             </Router>
             </Switch>
