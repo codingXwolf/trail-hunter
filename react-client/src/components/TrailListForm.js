@@ -43,6 +43,7 @@ class TrailListForm extends Component {
     onDropdownChange = selectedOption => { this.setState({trailRating: selectedOption.target.value}) }
 
     onSubmit = () => {
+        debugger;
         const id = this.props.match.params.id;
         if (id) {
             this.props.update({
@@ -50,7 +51,7 @@ class TrailListForm extends Component {
                 , trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating.selectItem
+                , trailRating: this.state.trailRating
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -60,7 +61,7 @@ class TrailListForm extends Component {
                 trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating.selectItem
+                , trailRating: this.state.trailRating
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -91,7 +92,7 @@ class TrailListForm extends Component {
                                 <ControlLabel>City</ControlLabel>
                                 <FormControl type="text" placeholder="City" name="city" value={this.state.city} onChange={this.onChange} />
                             </FormGroup>
-                            <div className="field row">
+                            <FormGroup>
                                 <label>Trail Rating</label>
                                 <select name="trailRating"
                                     className="drop_style"
@@ -99,13 +100,14 @@ class TrailListForm extends Component {
                                     value={this.state.trailRating.value}
                                     onChange={ e => this.onDropdownChange(e)}
                                 >
+                                    <option value="">- Trail difficulty -</option>
                                     <option value="Green">Green</option>
                                     <option value="Blue">Blue</option>
                                     <option value="Black Diamond">Black Diamond</option>
                                     <option value="Double Black Diamond">Double Black Diamond</option>
                                     <option value="Pro Line">Pro Line</option>
                                 </select>
-                            </div>
+                            </FormGroup>
 
                             <FormGroup className="col-lg-6">
                                 <ControlLabel>Description</ControlLabel>
