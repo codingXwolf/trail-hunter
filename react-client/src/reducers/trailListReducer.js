@@ -1,19 +1,28 @@
 const initialState = [
+    {   
+        id:9870987
+        ,trailName: 'Eaton Saddle'
+        ,trailState: 'California'
+        ,city: 'Altadena'
+        ,trailRating:'Green'
+        ,trailImage: 'https://media-cdn.tripadvisor.com/media/photo-s/0d/b2/3f/cb/on-the-way-down-from.jpg'
+        ,description: 'fast trail with a lot of exposure.'
+    },
     {
-        id: 1202938702
+        id: 32453245
         ,trailName: 'Wintercreek'
         ,trailState: 'California'
         ,city: 'Altadena'
-        ,trailRating: {value:'Double Black Diamond'}
+        ,trailRating: 'Blue'
         ,trailImage: 'https://i.ytimg.com/vi/9OBo8tsOGqU/maxresdefault.jpg'
         ,description: 'Fast flowy singletrack'
     },
     {   
-        id:9248709
+        id:52345345
         ,trailName: 'Eaton Saddle'
         ,trailState: 'California'
         ,city: 'Altadena'
-        ,trailRating: {value:'Black Diamond'}
+        ,trailRating: 'Black Diamond'
         ,trailImage: 'https://media-cdn.tripadvisor.com/media/photo-s/0d/b2/3f/cb/on-the-way-down-from.jpg'
         ,description: 'fast trail with a lot of exposure.'
     }
@@ -22,6 +31,7 @@ const initialState = [
 
 //state = [], action
 const reducer = (state = initialState, action) =>{
+    debugger;
     switch (action.type){
         case 'ADD_TRAIL':
         return [

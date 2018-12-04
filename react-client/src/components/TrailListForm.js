@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormControl, FormGroup, Button, ControlLabel, Form} from 'react-bootstrap';
+import { FormControl, FormGroup, Button, ControlLabel, Form, Col} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { add, update } from '../actions/trailListAction';
 
@@ -43,6 +43,7 @@ class TrailListForm extends Component {
     onDropdownChange = selectedOption => { this.setState({trailRating: selectedOption.target.value}) }
 
     onSubmit = () => {
+        debugger;
         const id = this.props.match.params.id;
         if (id) {
             this.props.update({
@@ -50,7 +51,7 @@ class TrailListForm extends Component {
                 , trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating.selectItem
+                , trailRating: this.state.trailRating
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -60,7 +61,7 @@ class TrailListForm extends Component {
                 trailName: this.state.trailName
                 , trailState: this.state.trailState
                 , city: this.state.city
-                , trailRating: this.state.trailRating.selectItem
+                , trailRating: this.state.trailRating
                 , trailImage: this.state.trailImage
                 , description: this.state.description
             })
@@ -75,43 +76,43 @@ class TrailListForm extends Component {
 
         return (
             <React.Fragment>
-                <section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
                     <div className="content">
                         <Form>
-                            <FormGroup className="col-lg-6">
+                            <FormGroup>
                                 <ControlLabel>Trail Name</ControlLabel>
-                                <FormControl type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
+                                <Col sm={2}>
+                                <FormControl className="col-xs-4" type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
+                                </Col>
                             </FormGroup>
-
-                            <FormGroup className="col-lg-6">
+                            <FormGroup>
                                 <ControlLabel>State</ControlLabel>
                                 <FormControl type="text" placeholder="State" name="trailState" value={this.state.trailState} onChange={this.onChange} />
                             </FormGroup>
-                            <FormGroup className="col-lg-6">
+                            <FormGroup>
                                 <ControlLabel>City</ControlLabel>
                                 <FormControl type="text" placeholder="City" name="city" value={this.state.city} onChange={this.onChange} />
                             </FormGroup>
-                            <div className="field row">
+                            <FormGroup>
                                 <label>Trail Rating</label>
                                 <select name="trailRating"
                                     className="drop_style"
-                                    name="dropdown"
                                     value={this.state.trailRating.value}
                                     onChange={ e => this.onDropdownChange(e)}
                                 >
+                                    <option value="">- Trail difficulty -</option>
                                     <option value="Green">Green</option>
                                     <option value="Blue">Blue</option>
                                     <option value="Black Diamond">Black Diamond</option>
                                     <option value="Double Black Diamond">Double Black Diamond</option>
                                     <option value="Pro Line">Pro Line</option>
                                 </select>
-                            </div>
+                            </FormGroup>
 
-                            <FormGroup className="col-lg-6">
+                            <FormGroup>
                                 <ControlLabel>Description</ControlLabel>
                                 <FormControl componentClass="textarea" placeholder="Trail Description" name="description" value={this.state.description} onChange={this.onChange} />
                             </FormGroup>
-                            <FormGroup className="col-lg-6">
+                            <FormGroup>
                                 <ControlLabel>Trail Photos</ControlLabel>
                                 <FormControl name="trailImage" placeholder="Add Url" value={this.state.trailImage} onChange={this.onChange} />
                             </FormGroup>
@@ -123,7 +124,6 @@ class TrailListForm extends Component {
                     <div className="image">
                         <img src="images/bannermtn.jpg" alt="" />
                     </div>
-                </section>
             </React.Fragment>
         )
     }

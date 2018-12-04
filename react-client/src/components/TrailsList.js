@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import ReactSelect from 'react-select';
 import { Button } from 'react-bootstrap';
 import { del } from '../actions/trailListAction';
 
@@ -21,21 +20,22 @@ class TrailsList extends Component {
         this.props.history.push("./TrailListForm")
     }
 
-
 render() {
-    const iconStyle = {height: "40px", width: "15%", display: "block"}  
+    const iconStyle = {height: "40px", width: "15%"} 
+
     const trailList = this.props.trailListReducer.map(item => {
+        debugger;
         return 	<section key={item.id}><div className="inner">
         <h3>{item.trailName}</h3>
         <h4>{item.city}</h4>
-        <span className="icon"><img style={iconStyle} 
-        src={item.trailRating.value === "Green" ? "images/greencircle.png" : "" ||
-        item.trailRating.value === "Blue" ? "images/bluesquare.png" : "" || 
-        item.trailRating.value === "Black Diamond" ? "images/singleblackdiamond.png" : "" ||
-        item.trailRating.value === "Double Black Diamond" ? "images/doubleblackdiamondpng.png" : "" ||
-        item.trailRating.value === "Pro Line" ? "images/proline.png" : ""}/>
-        {item.trailRating.value}</span>
-        <img style={{ height: "190px", width: "100%", display: "block" }} src={item.trailImage ? item.trailImage : "images/huskydh.jpg"} />
+        <img style={iconStyle} alt="some text"
+        src={item.trailRating === "Green" ? "images/greencircle.png" : "" ||
+        item.trailRating === "Blue" ? "images/bluesquare.png" : "" || 
+        item.trailRating === "Black Diamond" ? "images/singleblackdiamond.png" : "" ||
+        item.trailRating === "Double Black Diamond" ? "images/doubleblackdiamondpng.png" : "" ||
+        item.trailRating === "Pro Line" ? "images/proline.png" : ""}/>
+        <p>{item.trailRating}</p>
+        <img style={{ height: "190px", width: "100%", display: "block" }} alt="some text" src={item.trailImage ? item.trailImage : "images/huskydh.jpg"} />
          {/*random image address https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZkLYIYFJY8oILxveKLn8OA7xz9I8vJ7q0Lcq2f0g6Hdg0zQfH */}
         <p>{item.description}</p>
                    <Button type="button"
