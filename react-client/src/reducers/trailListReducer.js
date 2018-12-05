@@ -31,7 +31,6 @@ const initialState = [
 
 //state = [], action
 const reducer = (state = initialState, action) =>{
-    debugger;
     switch (action.type){
         case 'ADD_TRAIL':
         return [

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormControl, FormGroup, Button, ControlLabel, Form, Col} from 'react-bootstrap';
+import { FormControl, FormGroup, Button, ControlLabel, Form} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { add, update } from '../actions/trailListAction';
 
@@ -21,7 +21,7 @@ class TrailListForm extends Component {
         this.onDropdownChange = this.onDropdownChange.bind(this)
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         const id = this.props.match.params.id;
         if (id && this.props.matchingTrail && this.props.matchingTrail.length > 0) {
             const trail = this.props.matchingTrail[0];
@@ -43,7 +43,6 @@ class TrailListForm extends Component {
     onDropdownChange = selectedOption => { this.setState({trailRating: selectedOption.target.value}) }
 
     onSubmit = () => {
-        debugger;
         const id = this.props.match.params.id;
         if (id) {
             this.props.update({
@@ -71,18 +70,17 @@ class TrailListForm extends Component {
 
     render() {
         const button = this.props.match.params.id
-        ? <Button type="button"className="btn btn-primary"onClick={this.onSubmit}>Update</Button>
-        : <Button type="button"className="btn btn-primary"onClick={this.onSubmit}>Submit</Button>
+        ? <Button type="button" className="btn btn-primary"onClick={this.onSubmit}>Update</Button>
+        : <Button type="button" className="btn btn-primary"onClick={this.onSubmit}>Submit</Button>
 
         return (
             <React.Fragment>
+                <section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
                     <div className="content">
                         <Form>
                             <FormGroup>
                                 <ControlLabel>Trail Name</ControlLabel>
-                                <Col sm={2}>
-                                <FormControl className="col-xs-4" type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
-                                </Col>
+                                    <FormControl className="col-xs-4" type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup>
                                 <ControlLabel>State</ControlLabel>
@@ -97,7 +95,7 @@ class TrailListForm extends Component {
                                 <select name="trailRating"
                                     className="drop_style"
                                     value={this.state.trailRating.value}
-                                    onChange={ e => this.onDropdownChange(e)}
+                                    onChange={e => this.onDropdownChange(e)}
                                 >
                                     <option value="">- Trail difficulty -</option>
                                     <option value="Green">Green</option>
@@ -124,6 +122,7 @@ class TrailListForm extends Component {
                     <div className="image">
                         <img src="images/bannermtn.jpg" alt="" />
                     </div>
+                </section>
             </React.Fragment>
         )
     }
