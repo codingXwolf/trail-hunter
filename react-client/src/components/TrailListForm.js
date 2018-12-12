@@ -22,6 +22,7 @@ class TrailListForm extends Component {
     }
 
     componentDidMount = () => {
+        console.log("soo is a fucking puto")
         const id = this.props.match.params.id;
         if (id && this.props.matchingTrail && this.props.matchingTrail.length > 0) {
             const trail = this.props.matchingTrail[0];
