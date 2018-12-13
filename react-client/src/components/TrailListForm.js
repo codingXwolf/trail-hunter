@@ -22,7 +22,7 @@ class TrailListForm extends Component {
     }
 
     componentDidMount = () => {
-        console.log("soo is a fucking puto")
+        debugger;
         const id = this.props.match.params.id;
         if (id && this.props.matchingTrail && this.props.matchingTrail.length > 0) {
             const trail = this.props.matchingTrail[0];
@@ -76,23 +76,29 @@ class TrailListForm extends Component {
 
         return (
             <React.Fragment>
-                <section className="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+                <section className="spotlight style1 orient-right content-align-left image-position-left onscroll-image-fade-in" id="first">
                     <div className="content">
                         <Form>
                             <FormGroup>
                                 <ControlLabel>Trail Name</ControlLabel>
-                                    <FormControl className="col-xs-4" type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
+                                    <FormControl type="text" placeholder="Trail Name" name="trailName" value={this.state.trailName} onChange={this.onChange} />
                             </FormGroup>
+                            <p></p>
+                            
                             <FormGroup>
                                 <ControlLabel>State</ControlLabel>
                                 <FormControl type="text" placeholder="State" name="trailState" value={this.state.trailState} onChange={this.onChange} />
                             </FormGroup>
+                            <p></p>
+
                             <FormGroup>
                                 <ControlLabel>City</ControlLabel>
                                 <FormControl type="text" placeholder="City" name="city" value={this.state.city} onChange={this.onChange} />
                             </FormGroup>
+                            <p></p>
+                            
                             <FormGroup>
-                                <label>Trail Rating</label>
+                                <ControlLabel>Trail Rating</ControlLabel>
                                 <select name="trailRating"
                                     className="drop_style"
                                     value={this.state.trailRating.value}
@@ -106,11 +112,14 @@ class TrailListForm extends Component {
                                     <option value="Pro Line">Pro Line</option>
                                 </select>
                             </FormGroup>
+                            <p></p>
 
                             <FormGroup>
                                 <ControlLabel>Description</ControlLabel>
                                 <FormControl componentClass="textarea" placeholder="Trail Description" name="description" value={this.state.description} onChange={this.onChange} />
                             </FormGroup>
+                            <p></p>
+                            
                             <FormGroup>
                                 <ControlLabel>Trail Photos</ControlLabel>
                                 <FormControl name="trailImage" placeholder="Add Url" value={this.state.trailImage} onChange={this.onChange} />
