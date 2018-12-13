@@ -24,7 +24,8 @@ render() {
     const iconStyle = {height: "40px", width: "15%"} 
 
     const trailList = this.props.trailListReducer.map(item => {
-        return <section key={item.id}><div className="inner">
+        return <section key={item.id}>
+        <div className="inner">
             <h3>{item.trailName}</h3>
             <h4>{item.city}</h4>
             <img style={iconStyle} alt="some text"
@@ -49,11 +50,11 @@ render() {
     })
     return (
         <React.Fragment>          
-            <section className="wrapper style1 align-center">
+            <section className="wrapper style1 align-center medium onload-fade-in">
 						<div className="inner">
 							<h2>Mountain Bike Trail List</h2>
                             <Button onClick={this.onToForm}>Add Trail</Button>
-							<div className="items style1 medium onscroll-fade-in">
+							<div className="items style1 medium onload-fade-in">
 								{trailList}
 							</div>
 						</div>

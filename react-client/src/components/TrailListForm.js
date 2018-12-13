@@ -22,7 +22,6 @@ class TrailListForm extends Component {
     }
 
     componentDidMount = () => {
-        debugger;
         const id = this.props.match.params.id;
         if (id && this.props.matchingTrail && this.props.matchingTrail.length > 0) {
             const trail = this.props.matchingTrail[0];
@@ -76,7 +75,7 @@ class TrailListForm extends Component {
 
         return (
             <React.Fragment>
-                <section className="spotlight style1 orient-right content-align-left image-position-left onscroll-image-fade-in" id="first">
+                <section className="spotlight banner style1 orient-right content-align-left image-position-left onload-content-fade-in onload-image-fade-in" id="first">
                     <div className="content">
                         <Form>
                             <FormGroup>
@@ -129,9 +128,9 @@ class TrailListForm extends Component {
                             </FormGroup>
                         </Form>
                     </div>
-                    <div className="image">
+                    <span className="image fit">
                         <img src="images/bannermtn.jpg" alt="" />
-                    </div>
+                    </span>
                 </section>
             </React.Fragment>
         )
