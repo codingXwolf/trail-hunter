@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import { add, update } from '../actions/trailListAction';
 
 class TrailListForm extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
+        state = {
             trailName:''
             ,trailState:''
             ,city:''
@@ -15,11 +12,6 @@ class TrailListForm extends Component {
             ,trailImage:''
             ,description:''
         }
-        
-        this.onChange = this.onChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
-        this.onDropdownChange = this.onDropdownChange.bind(this)
-    }
 
     componentDidMount = () => {
         const id = this.props.match.params.id;

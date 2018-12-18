@@ -3,12 +3,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 class LandingPage extends React.Component {
-    constructor(props){
-        super(props)
-
-        this.onToForm = this.onToForm.bind(this);
-    }
-
 onToForm = () => {
     this.props.history.push("./TrailListForm")
 }

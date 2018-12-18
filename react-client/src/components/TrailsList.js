@@ -5,13 +5,6 @@ import { del } from '../actions/trailListAction';
 
 
 class TrailsList extends Component {
-    constructor(props){
-        super(props)
-        
-        this.onEdit = this.onEdit.bind(this)
-        this.onToForm = this.onToForm.bind(this)
-    }
-
     onEdit = id => {
         this.props.history.push("./TrailListForm/" + id)
     }
