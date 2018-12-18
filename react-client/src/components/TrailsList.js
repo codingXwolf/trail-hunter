@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { del } from '../actions/trailListAction';
 
-
-class TrailsList extends Component {
+class TrailsList extends React.Component {
     onEdit = id => {
         this.props.history.push("./TrailListForm/" + id)
     }

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FormControl, FormGroup, Button, ControlLabel, Form} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { add, update } from '../actions/trailListAction';
 
-class TrailListForm extends Component {
+class TrailListForm extends React.Component {
         state = {
             trailName:''
             ,trailState:''
@@ -67,7 +67,7 @@ class TrailListForm extends Component {
 
         return (
             <React.Fragment>
-                <section className="spotlight banner style1 orient-right content-align-left image-position-left onload-content-fade-in onload-image-fade-in" id="first">
+                <section className="spotlight banner style1 orient-right image-position-left onload-content-fade-in onload-image-fade-in" id="first">
                     <div className="content">
                         <Form>
                             <FormGroup>
@@ -113,8 +113,9 @@ class TrailListForm extends Component {
                             
                             <FormGroup>
                                 <ControlLabel>Trail Photos</ControlLabel>
-                                <FormControl name="trailImage" placeholder="Add Url" value={this.state.trailImage} onChange={this.onChange} />
+                                <FormControl name="trailImage" type="text" placeholder="Add Url" value={this.state.trailImage} onChange={this.onChange} />
                             </FormGroup>
+                            <p></p>
                             <FormGroup className="col-sm-1">
                                 {button}
                             </FormGroup>
