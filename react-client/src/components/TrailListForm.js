@@ -67,7 +67,7 @@ class TrailListForm extends React.Component {
 
         return (
             <React.Fragment>
-                <section className="spotlight banner style1 orient-right image-position-left onload-content-fade-in onload-image-fade-in" id="first">
+                <section className="spotlight style1 orient-right image-position-right onload-content-fade-in onload-image-fade-in" id="first">
                     <div className="content">
                         <Form>
                             <FormGroup>
@@ -121,14 +121,13 @@ class TrailListForm extends React.Component {
                             </FormGroup>
                         </Form>
                     </div>
-                    <span className="image fit">
+                    <div className="image">
                         <img src="images/bannermtn.jpg" alt="" />
-                    </span>
+                    </div>
                 </section>
             </React.Fragment>
         )
     }
-
 }
 
 const mapDispatchToProps = dispatch => ({
